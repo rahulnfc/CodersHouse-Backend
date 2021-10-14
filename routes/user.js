@@ -46,7 +46,7 @@ router.get('/:id', userController.GetUser);
 // @route   Post /user/uploadProfileImage
 // @desc    Upload profile image
 // @access  Private
-router.post('/uploadProfileImage', upload, userController.UploadProfileImage);
+router.post('/uploadProfileImage',upload.single('image'), userController.UploadProfileImage);
 
 // @route Delete /user/uploadProfileImage/:id
 // @desc    Delete profile image
@@ -56,7 +56,7 @@ router.delete('/uploadProfileImage/:id', userController.DeleteProfileImage);
 // @route   Post /user/uploadCoverImage
 // @desc    Upload cover image
 // @access  Private
-router.post('/uploadCoverImage', upload, userController.UploadCoverImage);
+router.post('/uploadCoverImage', upload.single('image'), userController.UploadCoverImage);
 
 //@routes Delete /user/uploadCoverImage/:id
 // @desc    Delete cover image

@@ -10,7 +10,7 @@ router.post('/textPost', postController.CreateTextPost);
 // @route Post /posts/imagePost
 // @desc Create an image post
 // @access Private
-router.post('/imagePost', postController.CreateImagePost);
+router.post('/imagePost', upload.array('image',5), postController.CreateImagePost);
 
 // @route Get /posts/allposts
 // @desc Get all posts of a user

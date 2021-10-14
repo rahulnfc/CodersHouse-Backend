@@ -20,8 +20,7 @@ module.exports = {
       throw error;
     }
   },
-  CreateImagePost: async (userData) => {
-    console.log(userData);
+  CreateImagePost: async (userData,fileLocation) => {
     try {
       if (userData.textPost !== '') {
         const imagePost = await db
@@ -30,6 +29,7 @@ module.exports = {
           .insertOne({
             userId: objectId(userData.userId),
             postText: userData.textPost,
+            imagePost: fileLocation,
             likes: [],
             createdAt: new Date(),
             updatedAt: new Date(),
@@ -41,6 +41,7 @@ module.exports = {
           .collection(collection.POST)
           .insertOne({
             userId: objectId(userData.userId),
+            imagePost: fileLocation,
             likes: [],
             createdAt: new Date(),
             updatedAt: new Date(),
@@ -71,6 +72,7 @@ module.exports = {
               _id: 1,
               userId: 1,
               postText: 1,
+              imagePost: 1,
               likes: 1,
               createdAt: 1,
               updatedAt: 1,
